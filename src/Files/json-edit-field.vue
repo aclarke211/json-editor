@@ -103,7 +103,6 @@ export default {
 .json-edit-field {
   input {
     margin: 1rem 0;
-    min-width: 30rem;
   }
 }
 </style>
