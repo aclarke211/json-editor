@@ -8,12 +8,12 @@
 
     <input v-if="fieldType === 'boolean'" v-model="editableFieldContent" type="checkbox">
 
-    <div v-if="fieldType === 'object'" class="sub-field">
+    <div v-if="fieldType === 'object'" :class="`${fieldKey}-${subFieldKey}'sub-field`">
       <JSONEditorField
         v-for="(subField, subFieldKey) in editableFieldContent"
         :key="subFieldKey"
         :fieldContent="subField"
-        :fieldKey="subFieldKey"
+        :fieldKey="`${fieldKey}-${subFieldKey}`"
         :fontSize="calculateNewFontSize()"
         @fieldContentChange="(event) => { editableFieldContent[subFieldKey] = event }"
       />
