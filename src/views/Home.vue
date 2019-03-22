@@ -17,29 +17,6 @@ export default {
   data: () => ({
     contentForEditor: [
       {
-        _component: 'MainBannerFootpatrol',
-        _identifier: 'main-banner-container',
-        content: {
-          url: '/test-url',
-          title: 'Banner Title',
-          subtitle: 'Banner Subtitle',
-          images: {
-            desktop: 'https://i1.adis.ws/i/jpl/y3_banner-69a3bbdb3a81708772da33a393d261bb',
-            mobile: 'https://i1.adis.ws/i/jpl/y3_mobile-87515bc88f1064c8886dcfb97025eaf9',
-          },
-          ctas: [
-            {
-              cta_url: '/cta-url-1',
-              cta_text: 'CTA Text 1',
-            },
-            {
-              cta_url: '/cta-url-2',
-              cta_text: 'CTA Text 2',
-            },
-          ],
-        },
-      },
-      {
         _component: 'SpotListFootpatrol',
         content: {
           spots: [
@@ -89,6 +66,29 @@ export default {
                   cta_text: 'Spot CTA 1',
                 },
               ],
+            },
+          ],
+        },
+      },
+      {
+        _component: 'MainBannerFootpatrol',
+        _identifier: 'main-banner-container',
+        content: {
+          url: '/test-url',
+          title: 'Banner Title',
+          subtitle: 'Banner Subtitle',
+          images: {
+            desktop: 'https://i1.adis.ws/i/jpl/y3_banner-69a3bbdb3a81708772da33a393d261bb',
+            mobile: 'https://i1.adis.ws/i/jpl/y3_mobile-87515bc88f1064c8886dcfb97025eaf9',
+          },
+          ctas: [
+            {
+              cta_url: '/cta-url-1',
+              cta_text: 'CTA Text 1',
+            },
+            {
+              cta_url: '/cta-url-2',
+              cta_text: 'CTA Text 2',
             },
           ],
         },
