@@ -34,3 +34,11 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+  .jsonPreview__container {
+    max-height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+</style>

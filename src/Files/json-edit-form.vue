@@ -74,7 +74,10 @@ export default {
 
 <style lang="scss" scoped>
   .edit-json-form {
-    padding: 1rem;
+    padding: 3.5rem;
+    max-height: 80vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
 
     .title {
       margin: 1rem 0;
