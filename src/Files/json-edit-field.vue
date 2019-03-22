@@ -12,10 +12,10 @@
       <JSONEditorField
         v-for="(subField, subFieldKey) in editableFieldContent"
         :key="`${fieldKey}-${subFieldKey}`"
+        :bus="bus"
         :fieldContent="subField"
         :fieldKey="`${fieldKey}-${subFieldKey}`"
         :fontSize="calculateNewFontSize()"
-        @fieldContentChange="(event) => { editableFieldContent[subFieldKey] = event }"
       />
     </div>
   </div>
@@ -48,6 +48,11 @@ export default {
       type: String,
       default: '1rem',
     },
+
+    bus: {
+      type: Object,
+      default: () => {},
+    },
   },
 
   methods: {
@@ -78,7 +83,7 @@ export default {
   watch: {
     editableFieldContent() {
       this.$nextTick(() => {
-        this.$emit('fieldContentChange', this.editableFieldContent);
+        this.bus.$emit('bus-emit', this.editableFieldContent);
       });
     },
   },

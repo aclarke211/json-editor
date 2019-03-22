@@ -1,6 +1,7 @@
 <template>
   <div class="jsonEditor__container">
     <JSONEditorForm
+      :bus="bus"
       :content="editorContent"
       v-if="editorContent"
       @content-updated="hotContentUpdate($event)" />
@@ -13,6 +14,7 @@
 </template>
 
 <script>
+import Vue from 'vue';
 import preview from './json-preview.vue';
 import JSONEditorForm from './json-edit-form.vue';
 
@@ -27,6 +29,7 @@ export default {
   data: () => ({
     editedContent: [],
     contentToSave: {},
+    bus: new Vue(),
   }),
 
   props: {
@@ -40,6 +43,14 @@ export default {
     hotContentUpdate(content) {
       this.editedContent = content;
     },
+  },
+
+  created() {
+    this.bus.$on('bus-emit', (event) => {
+      // eslint-disable-next-line
+      console.info("BUS EMIT", event);
+      this.editedContent[0].content.spots[0].title = event;
+    });
   },
 };
 </script>

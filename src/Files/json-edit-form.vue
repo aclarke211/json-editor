@@ -8,6 +8,7 @@
       <div v-for="(setContent, setContentKey) in dataSet.content" :key="setContentKey" >
 
         <JSONEditField
+          :bus="bus"
           :fieldContent="setContent"
           :fieldKey="setContentKey"
           :fontSize="'1.25rem'"
@@ -42,6 +43,11 @@ export default {
     title: {
       type: String,
       default: 'Edit Content',
+    },
+
+    bus: {
+      type: Object,
+      default: () => {},
     },
   },
 
