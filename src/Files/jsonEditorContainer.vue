@@ -1,12 +1,12 @@
 <template>
   <div class="jsonEditor__container">
     <JSONEditorForm
-      :content="editorContent.content"
+      :content="editorContent"
       v-if="editorContent"
       @content-updated="hotContentUpdate($event)" />
 
     <preview
-      :class="fascia"
+      :class="'json-preview'"
       v-if="editorContent"
       :previewContent="editedContent" />
   </div>
@@ -30,7 +30,10 @@ export default {
   }),
 
   props: {
-    editorContent: Object,
+    editorContent: {
+      type: [Array, Object],
+      default: () => ([]),
+    },
   },
 
   methods: {

@@ -5,7 +5,7 @@ export default function formatString(string, wordsToRemove) {
     formatted += 1;
   }
 
-  formatted = formatted.toformatted();
+  formatted = formatted.toString();
 
   formatted = formatted.split(/(?=[A-Z])/).join(' ').trim();
 
