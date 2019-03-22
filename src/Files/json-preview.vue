@@ -12,8 +12,8 @@
 import ContentLoop from '@jdplc/jd-components/sfc/ContentLoop.vue';
 
 // Footpatrol Components
-import MainBannerFootpatrol from '@jdplc/jd-components/sfc/footpatrol/MainBannerFootpatrol.vue';
-import SpotListFootpatrol from '@jdplc/jd-components/sfc/footpatrol/SpotListFootpatrol.vue';
+import MainBannerFootpatrol from './MainBannerFootpatrol.vue';
+import SpotListFootpatrol from './SpotListFootpatrol.vue';
 
 export default {
   name: 'jsonPreview',
