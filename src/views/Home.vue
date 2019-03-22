@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <h2>This is the app running.</h2>
     <jsonEditorContainer :editorContent="contentForEditor" />
   </div>
 </template>
@@ -25,10 +24,8 @@ export default {
           title: 'Banner Title',
           subtitle: 'Banner Subtitle',
           images: {
-            mobile:
-              'https://i1.adis.ws/i/jpl/desktop_top_and_bottom_banner1-a732ecd2b8d480071acac2bd338feda5?qlt=70',
-            desktop:
-              'https://i1.adis.ws/i/jpl/mobile_banner_uk1-67adc9400f1fa02d77a9b21c9c17cbbc?qlt=80',
+            desktop: 'https://i1.adis.ws/i/jpl/y3_banner-69a3bbdb3a81708772da33a393d261bb',
+            mobile: 'https://i1.adis.ws/i/jpl/y3_mobile-87515bc88f1064c8886dcfb97025eaf9',
           },
           ctas: [
             {
@@ -51,10 +48,40 @@ export default {
               subtitle: 'Spot Subtitle',
               url: '/spot-url',
               images: {
-                mobile:
-                  'https://i1.adis.ws/i/jpl/mobile_banner_03-95c9041457e9680dde01524e692c8a0e?qlt=80',
+                desktop: 'https://i1.adis.ws/i/jpl/r4_content-ab316d3e1395f110e7d562a1394b80a3',
+                mobile: 'https://i1.adis.ws/i/jpl/r4_mobile-1c0f04a5b740314e3ed870ad0319ba49',
+              },
+              ctas: [
+                {
+                  cta_url: '/spot-cta-1',
+                  cta_text: 'Spot CTA 1',
+                },
+              ],
+            },
+            {
+              title: 'Spot Title',
+              subtitle: 'Spot Subtitle',
+              url: '/spot-url',
+              images: {
+                desktop: 'https://i1.adis.ws/i/jpl/raf_content-c2d9eb3c7f3a2693bf4d4edbf4c38bc9',
+                mobile: 'https://i1.adis.ws/i/jpl/raf_mobile-917650e96bee73fb918d8cab78a3bef3',
+              },
+              ctas: [
+                {
+                  cta_url: '/spot-cta-1',
+                  cta_text: 'Spot CTA 1',
+                },
+              ],
+            },
+            {
+              title: 'Spot Title',
+              subtitle: 'Spot Subtitle',
+              url: '/spot-url',
+              images: {
                 desktop:
-                  'https://i1.adis.ws/i/jpl/desktop_top_and_bottom_banner_03-1feae2fd9ef468a3f0c39434280fd855?qlt=80',
+                  'https://i1.adis.ws/i/jpl/spezial_content-2368eb7d74ac1def5c0d799b3f563b06',
+                mobile:
+                  'https://i1.adis.ws/i/jpl/spezial_mobile-15d16fb5428ad1dccf53eacbb9b77011',
               },
               ctas: [
                 {
