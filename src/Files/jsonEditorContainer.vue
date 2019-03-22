@@ -4,7 +4,7 @@
       :bus="bus"
       :content="editorContent"
       v-if="editorContent"
-      @content-updated="hotContentUpdate($event)" />
+      @content-updated="liveContentUpdate($event)" />
 
     <preview
       :class="'json-preview'"
@@ -40,7 +40,7 @@ export default {
   },
 
   methods: {
-    hotContentUpdate(content) {
+    liveContentUpdate(content) {
       this.editedContent = content;
     },
   },
