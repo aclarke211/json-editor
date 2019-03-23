@@ -42,18 +42,16 @@ export default {
     setterDotNotation(obj, str, value) {
       if (typeof str === 'string') {
         return this.setterDotNotation(obj, str.split('.'), value);
-        // eslint-disable-next-line
-      } else if (str.length == 1 && value !== undefined) {
+      }
+
+      if (str.length === 1 && value !== undefined) {
         // eslint-disable-next-line
         return obj[str[0]] = value;
-        // eslint-disable-next-line
-      } else if (str.length === 0) {
-        // eslint-disable-next-line
-          return obj;
-      } else {
-        // eslint-disable-next-line
-        return this.setterDotNotation(obj[str[0]], str.slice(1), value);
       }
+
+      if (str.length === 0) { return obj; }
+
+      return this.setterDotNotation(obj[str[0]], str.slice(1), value);
     },
   },
 
