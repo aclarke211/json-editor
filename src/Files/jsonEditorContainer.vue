@@ -56,7 +56,7 @@ export default {
   },
 
   created() {
-    this.bus.$on('bus-emit', (event) => {
+    this.bus.$on('content-updated', (event) => {
       this.setterDotNotation(this.updatedContent, event.fieldKey, event.content);
     });
 

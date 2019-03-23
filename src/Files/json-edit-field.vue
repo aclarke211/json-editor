@@ -99,7 +99,7 @@ export default {
       };
 
       this.$nextTick(() => {
-        this.bus.$emit('bus-emit', toEmit);
+        this.bus.$emit('content-updated', toEmit);
       });
     },
   },
