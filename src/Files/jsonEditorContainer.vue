@@ -3,13 +3,12 @@
     <JSONEditorForm
       :bus="bus"
       :content="editorContent"
-      v-if="editorContent"
-      @content-updated="liveContentUpdate($event)" />
+      v-if="editorContent" />
 
     <preview
       :class="'json-preview'"
       v-if="editorContent"
-      :previewContent="editedContent" />
+      :previewContent="updatedContent" />
   </div>
 </template>
 
@@ -27,7 +26,7 @@ export default {
   },
 
   data: () => ({
-    editedContent: [],
+    updatedContent: [],
     contentToSave: {},
     bus: new Vue(),
   }),
@@ -40,10 +39,6 @@ export default {
   },
 
   methods: {
-    liveContentUpdate(content) {
-      this.editedContent = content;
-    },
-
     setterDotNotation(obj, str, value) {
       if (typeof str === 'string') {
         return this.setterDotNotation(obj, str.split('.'), value);
@@ -63,10 +58,11 @@ export default {
   },
 
   created() {
-    // Split the event.fieldKey, at '.', then need to add each one onto this.editedContent
     this.bus.$on('bus-emit', (event) => {
-      this.setterDotNotation(this.editedContent, event.fieldKey, event.content);
+      this.setterDotNotation(this.updatedContent, event.fieldKey, event.content);
     });
+
+    this.updatedContent = this.editorContent;
   },
 };
 </script>
