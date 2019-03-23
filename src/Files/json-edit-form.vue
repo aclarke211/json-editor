@@ -11,8 +11,7 @@
           :bus="bus"
           :fieldContent="setContent"
           :fieldKey="`${setKey}.content.${setContentKey}`"
-          :fontSize="'1.25rem'"
-          @fieldContentChange="fieldUpdated($event, setKey, setContentKey)" />
+          :fontSize="'1.25rem'" />
 
       </div>
     </div>
@@ -65,15 +64,6 @@ export default {
 
       return formatString(string, wordsToRemove);
     },
-
-    fieldUpdated(event, setKey, setContentKey) {
-      this.content[setKey].content[setContentKey] = event;
-      this.$emit('content-updated', this.content);
-    },
-  },
-
-  mounted() {
-    this.$emit('content-updated', this.content);
   },
 };
 </script>
