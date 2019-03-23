@@ -1,6 +1,5 @@
 <template>
   <div class="jsonPreview__container">
-    <h1>JSON Preview</h1>
     <ContentLoop
       :content="previewContent"
       :components="componentDefs"
