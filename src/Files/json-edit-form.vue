@@ -10,7 +10,8 @@
         <JSONEditField
           :bus="bus"
           :fieldContent="setContent"
-          :fieldKey="`${setKey}.content.${setContentKey}`"
+          :fieldKey="`${setContentKey}`"
+          :propertyAccessor="`${setKey}.content.${setContentKey}`"
           :fontSize="'1.25rem'" />
 
       </div>

@@ -57,7 +57,7 @@ export default {
 
   created() {
     this.bus.$on('content-updated', (event) => {
-      this.setterDotNotation(this.updatedContent, event.fieldKey, event.content);
+      this.setterDotNotation(this.updatedContent, event.propertyAccessor, event.content);
     });
 
     this.updatedContent = this.editorContent;

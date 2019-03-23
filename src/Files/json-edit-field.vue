@@ -25,10 +25,11 @@
       :class="`${fieldKey}-sub-field`" >
       <JSONEditorField
         v-for="(subField, subFieldKey) in editableFieldContent"
-        :key="`${fieldKey}.${subFieldKey}`"
+        :key="`${propertyAccessor}.${subFieldKey}`"
         :bus="bus"
         :fieldContent="subField"
-        :fieldKey="`${fieldKey}.${subFieldKey}`"
+        :fieldKey="`${fieldKey}-${subFieldKey}`"
+        :propertyAccessor="`${propertyAccessor}.${subFieldKey}`"
         :fontSize="calculateNewFontSize()" />
     </div>
   </div>
@@ -60,6 +61,11 @@ export default {
     fontSize: {
       type: String,
       default: '1rem',
+    },
+
+    propertyAccessor: {
+      type: [String, Number],
+      default: 0,
     },
 
     bus: {
@@ -95,7 +101,7 @@ export default {
     emitContent() {
       const toEmit = {
         content: this.editableFieldContent,
-        fieldKey: this.fieldKey,
+        propertyAccessor: this.propertyAccessor,
       };
 
       this.$nextTick(() => {
