@@ -2,19 +2,19 @@
   <div :class="[className]">
     <h3 :style="{'font-size': fontSize}" class="field-title">{{ formatName(fieldKey) }}</h3>
 
-    <input v-if="fieldType === 'string'" v-model="editableFieldContent" type="text">
+    <input v-if="fieldType === 'string'" v-model="editableFieldContent" type="text" @input="emitContent">
 
-    <input v-if="fieldType === 'number'" v-model.number="editableFieldContent" type="number">
+    <input v-if="fieldType === 'number'" v-model.number="editableFieldContent" type="number" @input="emitContent">
 
-    <input v-if="fieldType === 'boolean'" v-model="editableFieldContent" type="checkbox">
+    <input v-if="fieldType === 'boolean'" v-model="editableFieldContent" type="checkbox" @input="emitContent">
 
     <div v-if="fieldType === 'object'" :class="`${fieldKey}-sub-field`">
       <JSONEditorField
         v-for="(subField, subFieldKey) in editableFieldContent"
-        :key="`${fieldKey}-${subFieldKey}`"
+        :key="`${fieldKey}.${subFieldKey}`"
         :bus="bus"
         :fieldContent="subField"
-        :fieldKey="`${fieldKey}-${subFieldKey}`"
+        :fieldKey="`${fieldKey}.${subFieldKey}`"
         :fontSize="calculateNewFontSize()"
       />
     </div>
@@ -78,12 +78,15 @@ export default {
     formatName(string) {
       return formatString(string);
     },
-  },
 
-  watch: {
-    editableFieldContent() {
+    emitContent() {
+      const toEmit = {
+        content: this.editableFieldContent,
+        fieldKey: this.fieldKey,
+      };
+
       this.$nextTick(() => {
-        this.bus.$emit('bus-emit', this.editableFieldContent);
+        this.bus.$emit('bus-emit', toEmit);
       });
     },
   },

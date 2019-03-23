@@ -10,7 +10,7 @@
         <JSONEditField
           :bus="bus"
           :fieldContent="setContent"
-          :fieldKey="setContentKey"
+          :fieldKey="`${setKey}.content.${setContentKey}`"
           :fontSize="'1.25rem'"
           @fieldContentChange="fieldUpdated($event, setKey, setContentKey)" />
 

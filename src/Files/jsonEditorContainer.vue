@@ -43,13 +43,29 @@ export default {
     liveContentUpdate(content) {
       this.editedContent = content;
     },
+
+    setterDotNotation(obj, str, value) {
+      if (typeof str === 'string') {
+        return this.setterDotNotation(obj, str.split('.'), value);
+        // eslint-disable-next-line
+      } else if (str.length == 1 && value !== undefined) {
+        // eslint-disable-next-line
+        return obj[str[0]] = value;
+        // eslint-disable-next-line
+      } else if (str.length === 0) {
+        // eslint-disable-next-line
+          return obj;
+      } else {
+        // eslint-disable-next-line
+        return this.setterDotNotation(obj[str[0]], str.slice(1), value);
+      }
+    },
   },
 
   created() {
+    // Split the event.fieldKey, at '.', then need to add each one onto this.editedContent
     this.bus.$on('bus-emit', (event) => {
-      // eslint-disable-next-line
-      console.info("BUS EMIT", event);
-      this.editedContent[0].content.spots[0].title = event;
+      this.setterDotNotation(this.editedContent, event.fieldKey, event.content);
     });
   },
 };
