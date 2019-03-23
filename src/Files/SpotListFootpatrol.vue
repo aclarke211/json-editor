@@ -61,6 +61,7 @@ export default {
 
   .img-container {
     padding-bottom: 150%;
+    overflow: hidden;
   }
 
   &.desktop,
